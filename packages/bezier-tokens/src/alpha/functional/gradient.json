@@ -1,0 +1,19 @@
+{
+  "gradient": {
+    "fg": {
+      "black": {
+        "value": [
+          {
+            "color": "{color.bg.black.light}",
+            "position": "0%"
+          },
+          {
+            "color": "{color.bg.black.dark}",
+            "position": "100%"
+          }
+        ],
+        "type": "gradient"
+      }
+    }
+  }
+}

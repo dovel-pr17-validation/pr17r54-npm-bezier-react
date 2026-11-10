@@ -1,0 +1,12 @@
+{
+  "extends": "tsconfig/browser.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"]
+    },
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  },
+  "types": ["react", "jest"],
+  "include": ["src", "jest.setup.ts", ".storybook/**/*"]
+}

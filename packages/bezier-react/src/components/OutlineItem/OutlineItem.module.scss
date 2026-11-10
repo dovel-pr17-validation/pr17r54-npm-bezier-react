@@ -1,0 +1,53 @@
+.OutlineItem {
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  height: 28px;
+  padding: 0 6px 0 calc(var(--b-outline-item-indent) + 6px);
+
+  color: var(--color-text-neutral);
+  text-align: inherit;
+  text-decoration: none;
+
+  border-radius: var(--radius-6);
+
+  transition:
+    background-color var(--motion-transition-fast),
+    color var(--motion-transition-fast);
+
+  &:where(.clickable) {
+    cursor: pointer;
+    width: 100%;
+  }
+
+  &:where(.active) {
+    color: var(--color-text-accent-blue);
+    background-color: var(--color-fill-accent-blue);
+
+    & .Icon {
+      color: var(--color-text-accent-blue);
+    }
+  }
+
+  &:where(.clickable:not(.active):where(.focused, :hover)) {
+    background-color: var(--color-fill-neutral-light);
+  }
+}
+
+.Chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 6px;
+}
+
+.LeftContent {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.Content {
+  flex: 1;
+}

@@ -1,0 +1,286 @@
+# @channel.io/bezier-tokens
+
+## 0.6.0
+
+### Minor Changes
+
+- Add color-fill-neutral semantic token, and typography-font-weight-500, 600 global tokens ([#2806](https://github.com/channel-io/bezier-react/pull/2806)) by @timok1m
+
+## 0.5.0
+
+### Minor Changes
+
+- Add chart tokens and bezier-react story for v3 foundation color tokens. ([#2784](https://github.com/channel-io/bezier-react/pull/2784)) by @timok1m
+
+## 0.4.1
+
+### Patch Changes
+
+- Add fill-grey-light color token and update component background colors: TextField-primary and TextArea focus states, RadioGroup and Checkbox defaults, and some buttons. ([#2782](https://github.com/channel-io/bezier-react/pull/2782)) by @timok1m
+
+## 0.4.0
+
+### Minor Changes
+
+- Add V3 bezier tokens and update bezier components allow to use V3 tokens. ([#2764](https://github.com/channel-io/bezier-react/pull/2764)) by @timok1m
+
+## 0.3.3-beta.9
+
+### Patch Changes
+
+- Edit bezier-react's props and stylelint to maintain backward compatibility ([#2771](https://github.com/channel-io/bezier-react/pull/2771)) by @timok1m
+
+## 0.3.3-beta.8
+
+### Patch Changes
+
+- Update token values for dark mode visibility and edit Button component's background color ([#2769](https://github.com/channel-io/bezier-react/pull/2769)) by @timok1m
+
+## 0.3.3-beta.7
+
+### Patch Changes
+
+- Add invese color tokens and update grey-\* color value. Update bezier component colors ([#2767](https://github.com/channel-io/bezier-react/pull/2767)) by @timok1m
+
+## 0.3.3-beta.6
+
+### Patch Changes
+
+- Add text-accent-olive token, and update BetaBackgroundSemanticColor to accept BetaDimSemanticColor ([#2765](https://github.com/channel-io/bezier-react/pull/2765)) by @timok1m
+
+## 0.3.3-beta.5
+
+### Patch Changes
+
+- Update v3 token name from with 'beta' prefix to no prefix ([#2756](https://github.com/channel-io/bezier-react/pull/2756)) by @timok1m
+
+## 0.3.3-beta.4
+
+### Patch Changes
+
+- Remove unused 42-p, 100-p dimension tokens ([#2752](https://github.com/channel-io/bezier-react/pull/2752)) by @timok1m
+
+## 0.3.3-beta.3
+
+### Patch Changes
+
+- Update dark mode colors for text-success and text-warning. (text-success: cobalt.200 → cobalt.300, text-warning: warning.200 → warning.300) ([#2745](https://github.com/channel-io/bezier-react/pull/2745)) by @timok1m
+
+## 0.3.3-beta.2
+
+### Patch Changes
+
+- Add v3 tokens with --beta prefix ([#2733](https://github.com/channel-io/bezier-react/pull/2733)) by @timok1m
+
+## 0.3.2
+
+### Patch Changes
+
+- fix(typography): update line-height for size 16 and 17 from 22 to 24 ([#2704](https://github.com/channel-io/bezier-react/pull/2704)) by @dinohan
+
+  - Update typography size 16 line-height from 22 to 24
+  - Update typography size 17 line-height from 22 to 24
+  - This change improves text readability and spacing consistency
+
+## 0.3.1
+
+### Patch Changes
+
+- Updated surface colors in dark theme and Added grey-950(#1a1a1c) color to the global color palette. ([#2635](https://github.com/channel-io/bezier-react/pull/2635)) by @sungik-choi
+
+## 0.3.0
+
+### Minor Changes
+
+- Add SCSS support to access design tokens directly through SCSS variables. ([#2568](https://github.com/channel-io/bezier-react/pull/2568)) by @sungik-choi
+
+## 0.2.13
+
+### Patch Changes
+
+- The alpha version dimension token is removed. The alpha version radius token is added. ([#2540](https://github.com/channel-io/bezier-react/pull/2540)) by @sungik-choi
+
+## 0.2.12
+
+### Patch Changes
+
+- Changes in alpha color tokens. ([#2515](https://github.com/channel-io/bezier-react/pull/2515)) by @yangwooseong
+  - `color-fg(bg)-grey-grey-alpha-*` are renamed to `color-fg(bg)-grey-alpha-*`.
+  - `color-fg(bg)-white-white-alpha-*` are renamed to `color-fg(bg)-white-alpha-*`.
+  - add `color-fg-grey-darkest` token.
+
+## 0.2.11
+
+### Patch Changes
+
+- Change `alpha-color-green-300-0` alpha token. ([#2471](https://github.com/channel-io/bezier-react/pull/2471)) by @yangwooseong
+  Modify hovered color generating formula so that they are more visible in dark theme.
+
+## 0.2.10
+
+### Patch Changes
+
+- Rename `bg-${red}-shade-light` token to `bg-${red}-shade-lighter`. ([#2466](https://github.com/channel-io/bezier-react/pull/2466)) by @yangwooseong
+
+- Changes to the build result of package. ([#2462](https://github.com/channel-io/bezier-react/pull/2462)) by @yangwooseong
+
+  - `dark(light)ThemeHovered` property of entry object is removed and merged into the `dark(light)Theme` property.
+  - duplicate selector issue is resolved in `styles.css` stylesheet.
+
+## 0.2.9
+
+### Patch Changes
+
+- Changes in alpha functional tokens ([#2460](https://github.com/channel-io/bezier-react/pull/2460)) by @yangwooseong
+  - fix value of dark theme `bg-white-white-alpha-transparent` to `black-0`.
+  - add `bg-absolute-white,black-transparent`.
+
+## 0.2.8
+
+### Patch Changes
+
+- Add transparent tokens for alpha global and functional tokens. ([#2454](https://github.com/channel-io/bezier-react/pull/2454)) by @yangwooseong
+
+- Change some value of alpha tokens and add transparent token for alpha tokens. ([#2453](https://github.com/channel-io/bezier-react/pull/2453)) by @yangwooseong
+
+## 0.2.7
+
+### Patch Changes
+
+- Add hovered color tokens for alpha functional color. ([#2422](https://github.com/channel-io/bezier-react/pull/2422)) by @yangwooseong
+
+## 0.2.6
+
+### Patch Changes
+
+- Fix the value of alpha color.green.300(-15,30,45) ([#2362](https://github.com/channel-io/bezier-react/pull/2362)) by @yangwooseong
+
+## 0.2.5
+
+### Patch Changes
+
+- Add `white-alpha/transparent` token. ([#2253](https://github.com/channel-io/bezier-react/pull/2253)) by @yangwooseong
+
+- Change `innerShadow` value of `alpha-shadow-input-default` token to reference `color.shadow.medium` ([#2274](https://github.com/channel-io/bezier-react/pull/2274)) by @yangwooseong
+
+## 0.2.4
+
+### Patch Changes
+
+- Add missing `fg-{color}-dark` alpha version color tokens. ([#2212](https://github.com/channel-io/bezier-react/pull/2212)) by @sungik-choi
+
+## 0.2.3
+
+### Patch Changes
+
+- Add the font-family format supported by Google Web Font ([#2209](https://github.com/channel-io/bezier-react/pull/2209)) by @leejiwoo2002
+
+## 0.2.2
+
+### Patch Changes
+
+- Add `opacity-disabled` to alpha token. ([#2162](https://github.com/channel-io/bezier-react/pull/2162)) by @yangwooseong
+
+- Fix the value of alpha color.cobalt.300 ([#2160](https://github.com/channel-io/bezier-react/pull/2160)) by @sungik-choi
+
+## 0.2.1
+
+### Patch Changes
+
+- Add "color" prefix to alpha color tokens and fix misnaming of alpha font/typography tokens. ([#2152](https://github.com/channel-io/bezier-react/pull/2152)) by @sungik-choi
+
+## 0.2.0
+
+### Minor Changes
+
+- Add `ref` value to design tokens of alpha version. ([#2135](https://github.com/channel-io/bezier-react/pull/2135)) by @sungik-choi
+
+- Add design tokens for next(alpha) version. ([#2132](https://github.com/channel-io/bezier-react/pull/2132)) by @sungik-choi
+
+### Patch Changes
+
+- Modify alpha design tokens according to figma design ([#2138](https://github.com/channel-io/bezier-react/pull/2138)) by @yangwooseong
+
+## 0.1.0
+
+### Minor Changes
+
+- Apply deep freeze to the `tokens` object. ([#1992](https://github.com/channel-io/bezier-react/pull/1992)) by @sungik-choi
+
+- Add the missing `bg-header-float` semantic color token ([#1842](https://github.com/channel-io/bezier-react/pull/1842)) by @sungik-choi
+
+- Add composition tokens, such as box-shadow ([#1769](https://github.com/channel-io/bezier-react/pull/1769)) by @sungik-choi
+
+- Now serving one combined styles.css file. This is a breaking change for anyone who was importing the individual CSS files. You will need to update your import to `@channel.io/bezier-tokens/css/styles.css`. ([#1769](https://github.com/channel-io/bezier-react/pull/1769)) by @sungik-choi
+
+- Add z-index and opacity tokens ([#1766](https://github.com/channel-io/bezier-react/pull/1766)) by @sungik-choi
+
+- Remove invalid radius tokens ([#1934](https://github.com/channel-io/bezier-react/pull/1934)) by @sungik-choi
+
+  - `radius-10`
+  - `radius-14`
+  - `radius-100-p`
+
+- Fix invalid letter spacing token values ([#1821](https://github.com/channel-io/bezier-react/pull/1821)) by @sungik-choi
+
+- First release ([#1685](https://github.com/channel-io/bezier-react/pull/1685)) by @sungik-choi
+
+- Add categories by token to the JavaScript build file ([#1766](https://github.com/channel-io/bezier-react/pull/1766)) by @sungik-choi
+
+- Remove unused tokens and add missing unit to radius tokens ([#1752](https://github.com/channel-io/bezier-react/pull/1752)) by @sungik-choi
+
+### Patch Changes
+
+- Remove duplicate styles in styles.css ([#1779](https://github.com/channel-io/bezier-react/pull/1779)) by @sungik-choi
+
+## 0.1.0-alpha.5
+
+### Minor Changes
+
+- Apply deep freeze to the `tokens` object. ([#1992](https://github.com/channel-io/bezier-react/pull/1992)) by @sungik-choi
+
+## 0.1.0-alpha.4
+
+### Minor Changes
+
+- Remove invalid radius tokens ([#1934](https://github.com/channel-io/bezier-react/pull/1934)) by @sungik-choi
+
+  - `radius-10`
+  - `radius-14`
+  - `radius-100-p`
+
+## 0.1.0-alpha.3
+
+### Minor Changes
+
+- Add the missing `bg-header-float` semantic color token. ([#1842](https://github.com/channel-io/bezier-react/pull/1842)) by @sungik-choi
+
+- Fix invalid letter spacing token values ([#1821](https://github.com/channel-io/bezier-react/pull/1821)) by @sungik-choi
+
+## 0.1.0-alpha.2
+
+### Minor Changes
+
+- Add composition tokens, such as box-shadow. ([#1769](https://github.com/channel-io/bezier-react/pull/1769)) by @sungik-choi
+
+- Now serving one combined styles.css file. This is a breaking change for anyone who was importing the individual CSS files. You will need to update your import to `@channel.io/bezier-tokens/css/styles.css`. ([#1769](https://github.com/channel-io/bezier-react/pull/1769)) by @sungik-choi
+
+- Add z-index and opacity tokens. ([#1766](https://github.com/channel-io/bezier-react/pull/1766)) by @sungik-choi
+
+- Add categories by token to the JavaScript build file. ([#1766](https://github.com/channel-io/bezier-react/pull/1766)) by @sungik-choi
+
+### Patch Changes
+
+- Remove duplicate styles in styles.css ([#1779](https://github.com/channel-io/bezier-react/pull/1779)) by @sungik-choi
+
+## 0.1.0-alpha.1
+
+### Minor Changes
+
+- Remove unused tokens and add missing unit to radius tokens. ([#1752](https://github.com/channel-io/bezier-react/pull/1752)) by @sungik-choi
+
+## 0.1.0-alpha.0
+
+### Minor Changes
+
+- First release ([#1685](https://github.com/channel-io/bezier-react/pull/1685)) by @sungik-choi

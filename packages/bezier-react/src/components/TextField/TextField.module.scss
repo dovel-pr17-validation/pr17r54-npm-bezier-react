@@ -1,0 +1,135 @@
+@use '../../styles/mixins/typography';
+
+.TextFieldInput {
+  @include typography.size(14);
+
+  width: 100%;
+  height: 100%;
+  padding: 0;
+
+  color: var(--color-text-neutral);
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  &:read-only {
+    color: var(--color-text-neutral-light);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.CloseIcon {
+  visibility: hidden;
+}
+
+.TextFieldWrapper {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  height: var(--b-form-field-size);
+  padding: 0 12px;
+
+  background-color: var(--color-fill-grey);
+  border-radius: var(--radius-8);
+
+  transition:
+    border-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
+
+  &:where(.variant-secondary) {
+    background-color: var(--color-fill-neutral-light);
+  }
+
+  &:where(.size-l) .TextFieldInput {
+    @include typography.size(16);
+  }
+
+  &:where(.size-xl) {
+    border-radius: var(--radius-12);
+
+    & .TextFieldInput {
+      @include typography.size(18);
+    }
+  }
+
+  &:where(:has(.TextFieldInput:disabled)) {
+    opacity: var(--opacity-disabled);
+  }
+
+  &:where(.variant-primary) {
+    box-shadow: var(--state-input-default);
+  }
+
+  &:where(:has(.TextFieldInput:focus)) {
+    box-shadow: var(--state-input-active);
+  }
+
+  &:where(:has(.TextFieldInput:focus, :hover, .CloseIconWrapper:focus))
+    .CloseIcon {
+    visibility: visible;
+  }
+
+  &:where(.variant-primary):where(
+      :has(.TextFieldInput[aria-invalid='true']),
+      :has(.TextFieldInput:not(:disabled, :read-only):focus)
+    ) {
+    background-color: var(--color-fill-grey-light);
+  }
+
+  &:where(.variant-primary:has(.TextFieldInput:read-only)) {
+    background-color: var(--color-fill-grey-heavy);
+  }
+
+  &:has(:where(.TextFieldInput[aria-invalid='true'])) {
+    box-shadow: var(--state-input-error);
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.LeftContentWrapper {
+  display: flex;
+  align-items: center;
+  padding-right: 6px;
+}
+
+.RightContentWrapper {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  padding-right: 2px;
+}
+
+.RightItemWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+}
+
+.CloseIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+  padding-right: 2px;
+
+  color: var(--color-text-neutral-lighter);
+
+  &:hover {
+    color: var(--color-text-neutral-light);
+  }
+}

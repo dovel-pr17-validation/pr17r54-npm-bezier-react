@@ -1,0 +1,288 @@
+@use '../../styles/mixins/dimension';
+
+@use '../Icon/Icon.module';
+
+$chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
+
+.IconButton {
+  position: relative;
+  box-sizing: border-box;
+  transition: background-color var(--motion-transition-fast);
+
+  /* dimension */
+  &:where(.size-xs) {
+    @include dimension.square(20px);
+
+    padding: 2px;
+  }
+
+  &:where(.size-s) {
+    @include dimension.square(24px);
+
+    padding: 4px;
+  }
+
+  &:where(.size-m) {
+    @include dimension.square(36px);
+
+    padding: 8px;
+  }
+
+  &:where(.size-l) {
+    @include dimension.square(44px);
+
+    padding: 12px;
+  }
+
+  &:where(.size-xl) {
+    @include dimension.square(54px);
+
+    padding: 15px;
+  }
+
+  /* background-color */
+  &:where(.variant-primary) {
+    $background-color-by-color: (
+      blue: var(--color-fill-accent-blue-heavier),
+      cobalt: var(--color-fill-accent-cobalt-heavier),
+      red: var(--color-fill-accent-red-heavier),
+      orange: var(--color-fill-accent-orange-heavier),
+      green: var(--color-fill-accent-green-heavier),
+      pink: var(--color-fill-accent-pink-heavier),
+      purple: var(--color-fill-accent-purple-heavier),
+      dark-grey: var(--color-fill-neutral-heaviest),
+      light-grey: var(--color-fill-neutral-heavier),
+      white-absolute: var(--color-fill-absolute-white),
+    );
+
+    @each $color, $background-color in $background-color-by-color {
+      &:where(.color-#{'' + $color}) {
+        background-color: $background-color;
+      }
+    }
+  }
+
+  &:where(.variant-secondary) {
+    $background-color-by-color: (
+      blue: var(--color-fill-accent-blue),
+      cobalt: var(--color-fill-accent-cobalt),
+      red: var(--color-fill-accent-red),
+      orange: var(--color-fill-accent-orange),
+      green: var(--color-fill-accent-green),
+      pink: var(--color-fill-accent-pink),
+      purple: var(--color-fill-accent-purple),
+      dark-grey: var(--color-fill-neutral-light),
+      light-grey: var(--color-fill-neutral-light),
+      white-absolute: var(--color-fill-absolute-white-light),
+    );
+
+    @each $color, $background-color in $background-color-by-color {
+      &:where(.color-#{'' + $color}) {
+        background-color: $background-color;
+      }
+    }
+  }
+
+  &:where(.variant-tertiary) {
+    @each $color in $chromatic-colors {
+      &:where(.color-#{'' + $color}) {
+        /* stylelint-disable-next-line bezier/validate-token */
+        background-color: var(--color-fill-accent-#{$color}-transparent);
+      }
+    }
+
+    &:where(.color-dark-grey, .color-light-grey) {
+      background-color: var(--color-fill-neutral-transparent);
+    }
+
+    &:where(.color-white-absolute) {
+      background-color: var(--color-fill-absolute-white-transparent);
+    }
+  }
+
+  /* color */
+  /* stylelint-disable-next-line no-duplicate-selectors */
+  &:where(.variant-primary) {
+    color: var(--color-text-absolute-white);
+
+    &:where(.color-dark-grey) {
+      color: var(--color-text-neutral-heaviest);
+    }
+
+    &:where(.color-light-grey) {
+      color: var(--color-text-absolute-white);
+    }
+
+    &:where(.color-white-absolute) {
+      color: var(--color-text-absolute-black);
+    }
+  }
+
+  &:where(.variant-secondary, .variant-tertiary) {
+    $color-map: (
+      blue: var(--color-text-accent-blue),
+      cobalt: var(--color-text-accent-cobalt),
+      red: var(--color-text-accent-red),
+      orange: var(--color-text-accent-orange),
+      green: var(--color-text-accent-green),
+      pink: var(--color-text-accent-pink),
+      purple: var(--color-text-accent-purple),
+      dark-grey: var(--color-text-neutral),
+      light-grey: var(--color-text-neutral-light),
+    );
+
+    @each $button-color, $color in $color-map {
+      &:where(.color-#{'' + $button-color}) {
+        color: $color;
+      }
+    }
+
+    &:where(.color-dark-grey) {
+      & :where(.ButtonIcon) {
+        color: var(--color-icon-neutral-heavy);
+      }
+    }
+
+    &:where(.color-light-grey) {
+      & :where(.ButtonIcon) {
+        color: var(--color-icon-neutral);
+      }
+    }
+  }
+
+  &:where(.variant-tertiary, .variant-secondary):where(.color-white-absolute) {
+    & :where(.ButtonIcon) {
+      color: var(--color-text-absolute-white);
+    }
+  }
+
+  /* border-radius */
+  &:where(.shape-rectangle) {
+    $border-radius-by-size: (
+      xs: var(--radius-6),
+      s: var(--radius-7),
+      m: var(--radius-10),
+      l: var(--radius-12),
+      xl: var(--radius-14),
+    );
+
+    @each $size, $border-radius in $border-radius-by-size {
+      &:where(.size-#{$size}) {
+        border-radius: $border-radius;
+      }
+    }
+  }
+
+  &:where(.shape-circle) {
+    border-radius: 9999px;
+  }
+
+  /* TODO: use v2 token when design is specified */
+
+  /* visual effect on interaction */
+  &:where(.active, :hover):where(:not(:disabled)) {
+    &:where(.variant-primary) {
+      @each $color in $chromatic-colors {
+        &:where(.color-#{'' + $color}) {
+          /* stylelint-disable-next-line bezier/validate-token */
+          background-color: var(--color-fill-accent-#{$color}-heavier-hovered);
+        }
+      }
+
+      &:where(.color-dark-grey) {
+        background-color: var(--color-fill-neutral-heaviest-hovered);
+      }
+
+      &:where(.color-light-grey) {
+        background-color: var(--color-fill-neutral-heavier-hovered);
+      }
+    }
+
+    &:where(.variant-secondary) {
+      @each $color in $chromatic-colors {
+        &:where(.color-#{'' + $color}) {
+          /* stylelint-disable-next-line bezier/validate-token */
+          background-color: var(--color-fill-accent-#{$color}-hovered);
+        }
+      }
+
+      &:where(.color-dark-grey, .color-light-grey) {
+        background-color: var(--color-fill-neutral-light-hovered);
+      }
+    }
+
+    &:where(.variant-tertiary) {
+      @each $color in $chromatic-colors {
+        &:where(.color-#{'' + $color}) {
+          /* stylelint-disable-next-line bezier/validate-token */
+          background-color: var(
+            --color-fill-accent-#{$color}-transparent-hovered
+          );
+        }
+      }
+
+      &:where(.color-dark-grey, .color-light-grey) {
+        background-color: var(--color-fill-neutral-transparent-hovered);
+      }
+
+      &:where(.color-white-absolute) {
+        background-color: var(--color-fill-absolute-white-transparent-hovered);
+      }
+    }
+
+    &:where(.color-dark-grey):where(.variant-secondary, .variant-tertiary) {
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-neutral-heavy-hovered);
+      }
+    }
+
+    &:where(.color-light-grey):where(.variant-secondary, .variant-tertiary) {
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-neutral-hovered);
+      }
+    }
+
+    &:where(.color-white-absolute.variant-tertiary) {
+      & :where(.ButtonIcon) {
+        color: var(--color-icon-absolute-white-hovered);
+      }
+    }
+  }
+
+  &:where(.variant-primary.color-blue:focus-visible) {
+    outline: 3px solid var(--color-state-action-light);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  /* internal components */
+  & :where(.ButtonContent) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:where(.loading) {
+      visibility: hidden;
+    }
+  }
+
+  & :where(.ButtonLoader) {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @each $size, $value in Icon.$size-map {
+      &:where(.size-#{$size}) {
+        & :is(.Loader) {
+          @include dimension.square(#{$value}px);
+        }
+      }
+    }
+  }
+}

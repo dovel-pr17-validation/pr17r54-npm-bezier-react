@@ -1,0 +1,288 @@
+@use '../../styles/mixins/dimension';
+
+@use '../Icon/Icon.module';
+
+$chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
+
+.Button {
+  $primary-color-map: (
+    blue: --color-fill-accent-blue-heavier,
+    cobalt: --color-fill-accent-cobalt-heavier,
+    red: --color-fill-accent-red-heavier,
+    orange: --color-fill-accent-orange-heavier,
+    green: --color-fill-accent-green-heavier,
+    pink: --color-fill-accent-pink-heavier,
+    purple: --color-fill-accent-purple-heavier,
+    dark-grey: --color-fill-neutral-heaviest,
+    light-grey: --color-fill-neutral-heavier,
+    white-absolute: --color-fill-absolute-white,
+  );
+  $secondary-color-map: (
+    blue: --color-fill-accent-blue,
+    cobalt: --color-fill-accent-cobalt,
+    red: --color-fill-accent-red,
+    orange: --color-fill-accent-orange,
+    green: --color-fill-accent-green,
+    pink: --color-fill-accent-pink,
+    purple: --color-fill-accent-purple,
+    dark-grey: --color-fill-neutral-light,
+    light-grey: --color-fill-neutral-light,
+    white-absolute: --color-fill-absolute-white-light,
+  );
+
+  position: relative;
+  box-sizing: border-box;
+  transition: background-color var(--motion-transition-fast);
+
+  /* dimension */
+  &:where(.size-xs) {
+    height: 20px;
+    padding: 0 4px;
+
+    & :where(.ButtonText) {
+      padding: 0 3px;
+    }
+  }
+
+  &:where(.size-s) {
+    height: 24px;
+    padding: 0 6px;
+
+    & :where(.ButtonText) {
+      padding: 0 3px;
+    }
+  }
+
+  &:where(.size-m) {
+    height: 36px;
+    padding: 0 10px;
+
+    & :where(.ButtonText) {
+      padding: 0 4px;
+    }
+  }
+
+  &:where(.size-l) {
+    height: 44px;
+    padding: 0 14px;
+
+    & :where(.ButtonText) {
+      padding: 0 6px;
+    }
+  }
+
+  &:where(.size-xl) {
+    height: 54px;
+    padding: 0 18px;
+
+    & :where(.ButtonText) {
+      padding: 0 6px;
+    }
+  }
+
+  /* background-color */
+  &:where(.variant-primary) {
+    @each $color, $background-color in $primary-color-map {
+      &:where(.color-#{'' + $color}) {
+        background-color: var(#{$background-color});
+      }
+    }
+  }
+
+  &:where(.variant-secondary) {
+    @each $color, $background-color in $secondary-color-map {
+      &:where(.color-#{'' + $color}) {
+        background-color: var(#{$background-color});
+      }
+    }
+  }
+
+  &:where(.variant-tertiary) {
+    @each $color in $chromatic-colors {
+      &:where(.color-#{'' + $color}) {
+        /* stylelint-disable-next-line bezier/validate-token */
+        background-color: var(--color-fill-accent-#{$color}-transparent);
+      }
+    }
+
+    &:where(.color-dark-grey, .color-light-grey) {
+      background-color: var(--color-fill-neutral-transparent);
+    }
+
+    &:where(.color-white-absolute) {
+      background-color: var(--color-fill-absolute-white-transparent);
+    }
+  }
+
+  /* color */
+  /* stylelint-disable-next-line no-duplicate-selectors */
+  &:where(.variant-primary) {
+    color: var(--color-text-absolute-white);
+
+    &:where(.color-dark-grey) {
+      color: var(--color-text-inverse);
+    }
+
+    &:where(.color-light-grey) {
+      color: var(--color-text-absolute-white);
+    }
+
+    &:where(.color-white-absolute) {
+      color: var(--color-text-absolute-black);
+    }
+  }
+
+  &:where(.variant-secondary, .variant-tertiary) {
+    $color-map: (
+      blue: var(--color-text-accent-blue),
+      cobalt: var(--color-text-accent-cobalt),
+      red: var(--color-text-accent-red),
+      orange: var(--color-text-accent-orange),
+      green: var(--color-text-accent-green),
+      pink: var(--color-text-accent-pink,),
+      purple: var(--color-text-accent-purple),
+      dark-grey: var(--color-text-neutral),
+      light-grey: var(--color-text-neutral-light),
+    );
+
+    @each $button-color, $color in $color-map {
+      &:where(.color-#{'' + $button-color}) {
+        color: $color;
+      }
+    }
+
+    &:where(.color-dark-grey) {
+      & :where(.ButtonIcon) {
+        color: var(--color-icon-neutral-heavy);
+      }
+    }
+
+    &:where(.color-light-grey) {
+      & :where(.ButtonIcon) {
+        color: var(--color-icon-neutral);
+      }
+    }
+  }
+
+  &:where(.variant-tertiary, .variant-secondary):where(.color-white-absolute) {
+    & :where(.ButtonIcon) {
+      color: var(--color-icon-absolute-white);
+    }
+
+    & :where(.ButtonText) {
+      color: var(--color-text-absolute-white);
+    }
+  }
+
+  /* border-radius */
+  &:where(.variant-primary, .variant-secondary, .variant-tertiary) {
+    $border-radius-by-size: (
+      xs: var(--radius-6),
+      s: var(--radius-7),
+      m: var(--radius-10),
+      l: var(--radius-12),
+      xl: var(--radius-14),
+    );
+
+    @each $size, $border-radius in $border-radius-by-size {
+      &:where(.size-#{$size}) {
+        border-radius: $border-radius;
+      }
+    }
+  }
+
+  /* TODO: use v2 token when design is specified */
+
+  /* visual effect on interaction */
+  &:where(.active, :hover):where(:not(:disabled)) {
+    &:where(.variant-primary) {
+      @each $color, $background-color in $primary-color-map {
+        &:where(.color-#{'' + $color}) {
+          background-color: var(#{$background-color}-hovered);
+        }
+      }
+    }
+
+    &:where(.variant-secondary) {
+      @each $color, $background-color in $secondary-color-map {
+        &:where(.color-#{'' + $color}) {
+          background-color: var(#{$background-color}-hovered);
+        }
+      }
+    }
+
+    &:where(.variant-tertiary) {
+      @each $color in $chromatic-colors {
+        &:where(.color-#{'' + $color}) {
+          /* stylelint-disable-next-line bezier/validate-token */
+          background-color: var(
+            --color-fill-accent-#{$color}-transparent-hovered
+          );
+        }
+      }
+
+      &:where(.color-dark-grey, .color-light-grey) {
+        background-color: var(--color-fill-neutral-transparent-hovered);
+      }
+
+      &:where(.color-white-absolute) {
+        background-color: var(--color-fill-absolute-white-transparent-hovered);
+      }
+    }
+
+    &:where(.color-dark-grey):where(.variant-secondary, .variant-tertiary) {
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-neutral-heavy-hovered);
+      }
+    }
+
+    &:where(.color-light-grey):where(.variant-secondary, .variant-tertiary) {
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-neutral-hovered);
+      }
+    }
+
+    &:where(.color-white-absolute.variant-tertiary) {
+      & :where(.ButtonIcon) {
+        color: var(--color-icon-absolute-white-hovered);
+      }
+    }
+  }
+
+  &:where(.variant-primary.color-blue:focus-visible) {
+    outline: 3px solid var(--color-state-action-light);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  /* internal components */
+  .ButtonContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:where(.loading) {
+      visibility: hidden;
+    }
+  }
+
+  & :where(.ButtonLoader) {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @each $size, $value in Icon.$size-map {
+      &:where(.size-#{$size}) {
+        & :is(.Loader) {
+          @include dimension.square(#{$value}px);
+        }
+      }
+    }
+  }
+}

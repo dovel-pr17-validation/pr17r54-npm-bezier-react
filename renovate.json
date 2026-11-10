@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":labels(chore:deps)"],
+  "timezone": "Asia/Seoul",
+  "schedule": "* 10-19 1-7 * MON",
+  "packageRules": [
+    {
+      "groupName": "style",
+      "matchPackageNames": [
+        "/^eslint/",
+        "/^stylelint/",
+        "/^commitlint/",
+        "/^prettier/"
+      ]
+    }
+  ]
+}

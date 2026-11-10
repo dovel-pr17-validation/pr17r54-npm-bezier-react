@@ -1,0 +1,164 @@
+.ListItemLeftIcon {
+  transition: color var(--motion-transition-default);
+}
+
+.ListItem {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  text-align: inherit;
+  text-decoration: none;
+
+  transition: background-color var(--motion-transition-fast);
+
+  &:where(.variant-monochrome) {
+    color: var(--color-text-neutral);
+
+    & :where(.ListItemLeftIcon) {
+      color: var(--color-text-neutral-lighter);
+    }
+  }
+
+  &:where(.size-xs) {
+    padding: 4px 6px;
+    border-radius: var(--radius-6);
+  }
+
+  &:where(.size-s) {
+    padding: 6px;
+    border-radius: var(--radius-6);
+  }
+
+  &:where(.size-m) {
+    padding: 8px 6px;
+    border-radius: var(--radius-8);
+  }
+
+  &:where(.size-l) {
+    padding: 10px 6px;
+    border-radius: var(--radius-12);
+  }
+
+  &:where(.clickable) {
+    cursor: pointer;
+    width: 100%;
+  }
+
+  &:where(.disabled) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:where(.clickable:not(.disabled, .active)) {
+    &:where(.focused, :focus-visible) {
+      background-color: var(--color-fill-neutral-light);
+    }
+
+    &:where(:hover) {
+      background-color: var(--color-fill-neutral-light);
+    }
+  }
+
+  &:where(.active) {
+    color: var(--color-text-accent-blue);
+    background-color: var(--color-fill-accent-blue);
+
+    &:where(.focused, :focus-visible) {
+      background-color: var(--color-fill-accent-blue-heavy);
+    }
+
+    & :where(.ListItemLeftIcon) {
+      color: var(--color-text-accent-blue);
+    }
+
+    /* NOTE: When multiple adjacent elements are active, it naturally stitches the border together. */
+    /* stylelint-disable selector-max-specificity */
+    &:has(+ .ListItem.active) {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    & + .ListItem.active {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    /* stylelint-enable selector-max-specificity */
+  }
+
+  &.variant-blue {
+    color: var(--color-text-accent-blue);
+
+    & :where(.ListItemLeftIcon) {
+      color: var(--color-text-accent-blue);
+    }
+  }
+
+  &.variant-red {
+    color: var(--color-text-accent-red);
+
+    & :where(.ListItemLeftIcon) {
+      color: var(--color-text-accent-red);
+    }
+  }
+
+  &.variant-green {
+    color: var(--color-text-accent-green);
+
+    & :where(.ListItemLeftIcon) {
+      color: var(--color-text-accent-green);
+    }
+  }
+
+  &.variant-cobalt {
+    color: var(--color-text-accent-cobalt);
+
+    & :where(.ListItemLeftIcon) {
+      color: var(--color-text-accent-cobalt);
+    }
+  }
+}
+
+.ListItemContent {
+  display: grid;
+  grid-template-columns: fit-content(100%) minmax(0, 1fr);
+  width: 100%;
+}
+
+.ListItemRightContent {
+  display: flex;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.ListItemTitle {
+  display: flex;
+  grid-column: 2;
+  grid-row: 1;
+  align-items: center;
+
+  & * {
+    transition: color var(--motion-transition-fast);
+  }
+}
+
+.ListItemDescription {
+  display: flex;
+  grid-column: 2;
+  grid-row: 2;
+  align-items: center;
+
+  width: 100%;
+  margin-top: 2px;
+}
+
+.ListItemLeftContent {
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+  align-items: center;
+
+  margin-right: 8px;
+}
